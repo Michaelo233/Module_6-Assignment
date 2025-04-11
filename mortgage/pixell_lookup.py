@@ -18,17 +18,17 @@ class MortgageRate(Enum):
     """
     Enumeration of Pixell rivers mortgage rates. 
     """
-    FIXED_5: 0.0519
-    FIXED_3: 0.0589
-    FIXED_1: 0.0599
-    VARIABLE_5: 0.0649
-    VARIABLE_3: 0.0669
-    VARIABLE_1: 0.0679
+    FIXED_5 = 0.0519
+    FIXED_3 = 0.0589
+    FIXED_1 = 0.0599
+    VARIABLE_5 = 0.0649
+    VARIABLE_3 = 0.0669
+    VARIABLE_1 = 0.0679
 
 class PaymentFrequency(Enum):
     """
     Enumeration of mortgage payment frequency
     """
-    MONTHLY: 12
-    BI_WEEKLY: 26
-    WEEKLY: 52
+    MONTHLY = 12
+    BI_WEEKLY = 26
+    WEEKLY = 52

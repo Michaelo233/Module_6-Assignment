@@ -93,3 +93,35 @@ class MortgageTests(TestCase):
         self.assertEqual(excepted_frequency, mortgage._Mortgage__frequency)
         self.assertEqual(mortgage._Mortgage__amortization, excepted_amortization)
         
+    def test_mutator_raise_valueError_if_loan_amount_is_negative(self):
+        # Arrange
+        excepted = "Loan Amount must be positive."
+
+        # Act
+        with self.assertRaises(ValueError) as context:
+            Mortgage(-10, "FIXED_5", "MONTHLY", 5)
+
+        # Assert
+        self.assertEqual(str(context.exception), excepted)
+
+    def test_mutator_raise_valueError_if_loan_amount_is_0(self):
+        # Arrange
+        excepted = "Loan Amount must be positive."
+
+        # Act
+        with self.assertRaises(ValueError) as context:
+            Mortgage(0, "FIXED_5", "MONTHLY", 5)
+
+        # Assert
+        self.assertEqual(str(context.exception), excepted)
+
+    def test_mutator_for_valid_loan_amount(self):
+        # Arrange
+        loan_amount = 10
+
+        # Act
+        mortgage = Mortgage(loan_amount, "FIXED_5", "MONTHLY", 5)
+
+        # Assert
+        expected_loan_amount = loan_amount
+        self.assertEqual(mortgage._Mortgage__loan_amount, expected_loan_amount)

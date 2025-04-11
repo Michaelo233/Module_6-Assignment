@@ -10,6 +10,8 @@ from mortgage.pixell_lookup import (MortgageRate, PaymentFrequency,
                                     VALID_AMORTIZATION)
 
 class Mortgage:
+    """"
+    """
   
     def __init__(self, loan_amount: float, rate: str, frequency: str, amortization: int):
         if loan_amount <= 0:
@@ -30,4 +32,19 @@ class Mortgage:
         if amortization not in VALID_AMORTIZATION:
             raise ValueError("Amortization provided is invalid.")
         
-        self.__amorization = amortization
+        self.__amortization = amortization
+
+    # Accessor
+    # Accessor for loan_amount
+    @property 
+    def loan_amount(self):
+        return self.__loan_amount
+    
+    # Mutator
+    #Mutator for loan amount, raises an error if loan amount is invalid
+    @loan_amount.setter
+    def loan_amount(self, loan_amount: int):
+        if loan_amount <= 0:
+            raise ValueError( "Loan Amount must be positive.")
+        self.__loan_amount = loan_amount
+
