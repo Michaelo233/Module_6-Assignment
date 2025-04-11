@@ -125,3 +125,25 @@ class MortgageTests(TestCase):
         # Assert
         expected_loan_amount = loan_amount
         self.assertEqual(mortgage._Mortgage__loan_amount, expected_loan_amount)
+
+    def test_mutator_for_valid_rate(self):
+        # Arrange
+        rate = "FIXED_5"
+
+        # Act
+        mortgage = Mortgage(10000, rate, "MONTHLY", 5)
+
+        # Assert
+        expected_rate = MortgageRate[rate]
+        self.assertEqual(mortgage._Mortgage__rate, expected_rate)
+
+    def test_mutator_raise_valueError_if_rate_is_invalid(self):
+        # Arrange
+        excepted = "Rate provided is invalid."
+
+        # Act
+        with self.assertRaises(ValueError) as context:
+            Mortgage(1000, "FIXED_0", "MONTHLY", 5)
+
+        # Assert
+        self.assertEqual(str(context.exception), excepted)
