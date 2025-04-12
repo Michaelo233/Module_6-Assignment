@@ -271,3 +271,24 @@ class MortgageTests(TestCase):
 
     # Assert
         self.assertEqual(actual, expected)
+
+    def test_repr_returns_correct_strings(self):
+    # Arrange
+        loan_amount = 682912.43
+        rate = "FIXED_1"
+        frequency = "MONTHLY"
+        amortization = 30
+        mortgage = Mortgage(loan_amount, rate, frequency, amortization)
+
+
+
+
+    # Act
+        actual = repr(mortgage)
+        expected = (f"Mortgage({loan_amount}, "
+                    + f"{MortgageRate[rate].value}, "
+                    + f"{PaymentFrequency[frequency].value}, "
+                    + f"{amortization})")
+
+    # Assert
+        self.assertEqual(actual, expected)
