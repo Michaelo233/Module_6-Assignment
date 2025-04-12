@@ -169,3 +169,25 @@ class MortgageTests(TestCase):
 
         # Assert
         self.assertEqual(str(context.exception), excepted)
+
+    def test_mutator_for_valid_amortization(self):
+        # Arrange
+        amortization = 5
+
+        # Act
+        mortgage = Mortgage(10000, "FIXED_5", "MONTHLY", amortization)
+
+        # Assert
+        expected_amortization = amortization
+        self.assertEqual(mortgage._Mortgage__amortization, expected_amortization)
+
+    def test_mutator_raise_valueError_if_amortization_is_invalid(self):
+        # Arrange
+        excepted = "Amortization provided is invalid."
+
+        # Act
+        with self.assertRaises(ValueError) as context:
+            Mortgage(1000, "FIXED_5", "MONTHLY", 0)
+
+        # Assert
+        self.assertEqual(str(context.exception), excepted)
