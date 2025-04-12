@@ -147,3 +147,25 @@ class MortgageTests(TestCase):
 
         # Assert
         self.assertEqual(str(context.exception), excepted)
+
+    def test_mutator_for_valid_frequency(self):
+        # Arrange
+        frequency = "MONTHLY"
+
+        # Act
+        mortgage = Mortgage(10000, "FIXED_5", frequency, 5)
+
+        # Assert
+        expected_frequency = PaymentFrequency[frequency]
+        self.assertEqual(mortgage._Mortgage__frequency, expected_frequency)
+
+    def test_mutator_raise_valueError_if_frequency_is_invalid(self):
+        # Arrange
+        excepted = "Frequency provided is invalid."
+
+        # Act
+        with self.assertRaises(ValueError) as context:
+            Mortgage(1000, "FIXED_5", "YEARLY", 5)
+
+        # Assert
+        self.assertEqual(str(context.exception), excepted)
