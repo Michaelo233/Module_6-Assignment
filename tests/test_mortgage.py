@@ -1,13 +1,15 @@
 """
 Description: A class used to test the Mortgage class.
-Author: {Student Name}
-Date: {Date}
-Usage: Use the tests encapsulated within this class to test the MortgagePayment class.
+Author: Michael Obikwere
+Date: 07/04/2025
+Usage: Use the tests encapsulated within this class to test the 
+MortgagePayment class.
 """
 
 from unittest import TestCase
 from mortgage.mortgage import Mortgage
-from mortgage.pixell_lookup import MortgageRate, PaymentFrequency, VALID_AMORTIZATION 
+from mortgage.pixell_lookup import (MortgageRate, PaymentFrequency,
+                                     VALID_AMORTIZATION) 
 
 class MortgageTests(TestCase):
 

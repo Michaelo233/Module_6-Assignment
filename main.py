@@ -2,8 +2,8 @@
 Description: A client program written to verify accuracy of and 
 calculate payments for PiXELL River Mortgages.
 Author: ACE Faculty
-Edited by: {Student Name}
-Date: {Date}
+Edited by: Michael Obikwere
+Date: 12/04/2025
 """
 
 ### REQUIREMENT
