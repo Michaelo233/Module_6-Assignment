@@ -209,3 +209,65 @@ class MortgageTests(TestCase):
 
         # Assert
          self.assertAlmostEqual(actual, expected, places=2)
+    
+    def test_str_returns_correct_strings_2(self):
+    # Arrange
+        loan_amount = 682912.43
+        rate = "FIXED_3"
+        frequency = "MONTHLY"
+        amortization = 30
+        mortgage = Mortgage(loan_amount, rate, frequency, amortization)
+
+
+
+
+    # Act
+        actual = str(mortgage)
+        expected = (f"Mortgage Amount: ${loan_amount:,.2f} \n"
+            + f"Rate: {MortgageRate[rate].value * 100:.2f}% \n"
+            + f"Amortization: {amortization} \n"
+            + f"Frequency: {PaymentFrequency[frequency]} -- Calculated Payment: ${mortgage.calculate_payment():,.2f}")
+
+    # Assert
+        self.assertEqual(actual, expected)
+
+    def test_str_returns_correct_strings_3(self):
+    # Arrange
+        loan_amount = 682912.43
+        rate = "FIXED_3"
+        frequency = "BI_WEEKLY"
+        amortization = 30
+        mortgage = Mortgage(loan_amount, rate, frequency, amortization)
+
+
+
+
+    # Act
+        actual = str(mortgage)
+        expected = (f"Mortgage Amount: ${loan_amount:,.2f} \n"
+            + f"Rate: {MortgageRate[rate].value * 100:.2f}% \n"
+            + f"Amortization: {amortization} \n"
+            + f"Frequency: {PaymentFrequency[frequency]} -- Calculated Payment: ${mortgage.calculate_payment():,.2f}")
+
+    # Assert
+        self.assertEqual(actual, expected)
+    def test_str_returns_correct_strings(self):
+    # Arrange
+        loan_amount = 682912.43
+        rate = "FIXED_3"
+        frequency = "WEEKLY"
+        amortization = 30
+        mortgage = Mortgage(loan_amount, rate, frequency, amortization)
+
+
+
+
+    # Act
+        actual = str(mortgage)
+        expected = (f"Mortgage Amount: ${loan_amount:,.2f} \n"
+            + f"Rate: {MortgageRate[rate].value * 100:.2f}% \n"
+            + f"Amortization: {amortization} \n"
+            + f"Frequency: {PaymentFrequency[frequency]} -- Calculated Payment: ${mortgage.calculate_payment():,.2f}")
+
+    # Assert
+        self.assertEqual(actual, expected)
