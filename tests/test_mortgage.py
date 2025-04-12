@@ -191,3 +191,21 @@ class MortgageTests(TestCase):
 
         # Assert
         self.assertEqual(str(context.exception), excepted)
+
+    def test_calculate_payment_returns_payment(self):
+        # Arrange
+         loan_amount = 682912.43
+         rate = "FIXED_1"
+         frequency = "MONTHLY"
+         amortization = 10
+         mortgage = Mortgage(loan_amount, rate, frequency, amortization)
+
+
+
+
+        # Act
+         actual = mortgage.calculate_payment()
+         expected = 7578.30
+
+        # Assert
+         self.assertAlmostEqual(actual, expected, places=2)

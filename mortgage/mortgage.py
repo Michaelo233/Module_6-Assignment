@@ -92,5 +92,17 @@ class Mortgage:
         else:
             raise ValueError("Amortization provided is invalid")
         
-        self.__amorization = amortization
+        self.__amortization = amortization
+
+    # Calculates the payment according to the mortgage detials.
+    def calculate_payment(self):
+        PRINCIPAL_LOAN_AMOUNT =  self.__loan_amount
+        INTEREST = self.__rate.value / self.__frequency.value
+        NUMBER_OF_PAYMENTS = self.__amortization * self.__frequency.value
+
+        payment = (PRINCIPAL_LOAN_AMOUNT * 
+                   ((INTEREST * ((1 + INTEREST) ** NUMBER_OF_PAYMENTS)) 
+                    / (((1 + INTEREST) ** NUMBER_OF_PAYMENTS) - 1)))
         
+        return payment
+
